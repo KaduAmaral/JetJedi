@@ -1,0 +1,54 @@
+   <div class="page container" id="jedis" ng-controller="JediListController">
+      
+      <div class="row">
+         <div class="col-xs-12">
+            <a href="#!/novo-jedi" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Jedi</a>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-xs-12">
+            <div class="table-responsive">
+               <table class="table table-hover table-striped" id="jedis-list">
+                  <thead>
+                     <tr>
+                        <th>Nome</th>
+                        <th>Planeta</th>
+                        <th>Status</th>
+                        <th>Mestre</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="jedi in jedis" data-jedi-id="{{ jedi.id }}">
+                        <td>{{ jedi.name }}</td>
+                        <td>{{ jedi.planet }}</td>
+                        <td>{{ getStatus(jedi.status).status_name }}</td>
+                        <td>{{ jedi.master }}</td>
+                        <td>
+                           <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                 AÇÕES
+                                 <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                 <li><a href="#!/jedi/{{jedi.id}}">Editar</a></li>
+                                 <li><a href="javascript:void(0)" ng-click="removeJedi(jedi.id)">Excluir</a></li>
+                                 <li><a href="javascript:void(0)" ng-click="copyJedi(jedi)">Copiar</a></li>
+                              </ul>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr ng-show='jedis.length == 0'>
+                        <td colspan="5">Nenhum registro...</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <br><br>
+
+         </div>
+      </div>
+
+   </div>
