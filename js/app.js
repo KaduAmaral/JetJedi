@@ -183,10 +183,10 @@ app.controller('DashboardController', [
                type: "pie",
                indexLabelFontFamily: "Garamond",
                indexLabelFontSize: 20,
-               indexLabel: "{label} {y}%",
+               indexLabel: "{label} {y}",
                startAngle:-20,
                showInLegend: true,
-               toolTipContent:"{legendText} {y}%",
+               toolTipContent:"{legendText} {y}",
                dataPoints: chartPlanetData
             }
          ]
